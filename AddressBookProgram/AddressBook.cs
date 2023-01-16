@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AddressBookProgram
 {
     internal class AddressBook
-    {
-        List<Contact> person = new List<Contact>();
+    {      
+        Contact contact = new Contact();
         public void AddContact()
         {
-            Contact contact = new Contact();
-            Console.WriteLine("Welcome to Address Book Program\n");
             Console.WriteLine("Enter your First Name");
             string FirstName = Console.ReadLine();
             Console.WriteLine("Enter your Last Name");
@@ -27,7 +27,7 @@ namespace AddressBookProgram
             string EmailId = Console.ReadLine();
             Console.WriteLine("Enter your Phone_Number");
             string PhoneNo = Console.ReadLine();
-            person.Add(contact);
+
         }
     }
 }
