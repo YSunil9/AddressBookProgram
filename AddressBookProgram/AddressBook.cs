@@ -68,8 +68,7 @@ namespace AddressBookProgram
                         break;
                     case 3:
                         contact.Address = Console.ReadLine();
-                        break;
-                    
+                        break;                   
                     case 4:
                         contact.State = Console.ReadLine();
                         break;
@@ -89,5 +88,21 @@ namespace AddressBookProgram
                 Console.WriteLine("Contact doesn't exist");
             }
         }
+        public void Delete()
+        {
+            Console.WriteLine("Enter First Name to Delete Contact");
+            string fname = Console.ReadLine();
+            foreach (Contact input in person.ToList())
+            {
+                if (input.FirstName == fname)
+                {
+                    person.Remove(input);
+                }
+                Console.WriteLine("Contacts are successfully Deleted");
+                Console.ReadLine();
+            }
+        }
     }
 }
+
+
