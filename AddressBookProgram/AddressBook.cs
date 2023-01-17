@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Pipes;
 using System.Linq;
 using System.Net;
 using System.Reflection.Emit;
@@ -8,26 +9,85 @@ using System.Threading.Tasks;
 
 namespace AddressBookProgram
 {
-    internal class AddressBook
-    {      
+    public class AddressBook
+    {
         Contact contact = new Contact();
+        List<Contact> person = new List<Contact>();
         public void AddContact()
-        {
+        {            
             Console.WriteLine("Enter your First Name");
-            string FirstName = Console.ReadLine();
+            contact.FirstName = Console.ReadLine();
             Console.WriteLine("Enter your Last Name");
-            string LastName = Console.ReadLine();
+            contact.LastName = Console.ReadLine();
             Console.WriteLine("Enter your Address");
-            string Address = Console.ReadLine();
+            contact.Address = Console.ReadLine();
             Console.WriteLine("Enter your State");
-            string State = Console.ReadLine();
+            contact.State = Console.ReadLine();
             Console.WriteLine("Enter your ZipCode");
-            string ZipCode = Console.ReadLine();
+            contact.ZipCode = Console.ReadLine();
             Console.WriteLine("Enter your Email_Id");
-            string EmailId = Console.ReadLine();
+            contact.EmailId = Console.ReadLine();
             Console.WriteLine("Enter your Phone_Number");
-            string PhoneNo = Console.ReadLine();
-
+            contact.PhoneNo = Console.ReadLine();
+            person.Add(contact);
+        }
+        public void Display()
+        {
+            foreach (Contact contact in person)
+            {
+                Console.WriteLine("Name of person : " + contact.FirstName + " " + contact.LastName);
+                Console.WriteLine("Address of person is : " + contact.Address);
+                Console.WriteLine("State :" + contact.State);
+                Console.WriteLine("Zip :" + contact.ZipCode);
+                Console.WriteLine("Email of person : " + contact.EmailId);
+                Console.WriteLine("Phone Number of person : " + contact.PhoneNo);
+            }
+        }
+        public void Edit()
+        {
+            Console.WriteLine("For editing a contact enter first name : ");
+            string name = Console.ReadLine();
+            if (contact.FirstName == name)
+            {
+                Console.WriteLine("Choose Field to edit");
+                Console.WriteLine("1 - First Name");
+                Console.WriteLine("2 - Last Name");
+                Console.WriteLine("3 - Address");               
+                Console.WriteLine("5 - State");
+                Console.WriteLine("4 - Zip");
+                Console.WriteLine("7 - E-mail");
+                Console.WriteLine("6 - Phone Number");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        contact.FirstName = Console.ReadLine();
+                        break;
+                    case 2:
+                        contact.LastName = Console.ReadLine();
+                        break;
+                    case 3:
+                        contact.Address = Console.ReadLine();
+                        break;
+                    
+                    case 4:
+                        contact.State = Console.ReadLine();
+                        break;
+                    case 5:
+                        contact.ZipCode = Console.ReadLine();
+                        break;
+                    case 6:
+                        contact.PhoneNo =Console.ReadLine();
+                        break;
+                    case 7:
+                        contact.EmailId = Console.ReadLine();
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Contact doesn't exist");
+            }
         }
     }
 }
