@@ -102,6 +102,16 @@ namespace AddressBookProgram
                 Console.ReadLine();
             }
         }
+        public void MultipleContact()
+        {
+            Console.WriteLine("Enter Number of Contacts to Create");
+            int Number = Convert.ToInt32(Console.ReadLine());
+            while (Number > 0)
+            {
+                AddContact();
+                Number--;
+            }
+        }
     }
 }
 
