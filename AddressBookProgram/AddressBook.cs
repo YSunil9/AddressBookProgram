@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO.Pipes;
 using System.Linq;
 using System.Net;
@@ -13,8 +14,9 @@ namespace AddressBookProgram
     {
         Contact contact = new Contact();
         List<Contact> person = new List<Contact>();
+        Dictionary<string, List<Contact>> PersonDict = new Dictionary<string, List<Contact>>();
         public void AddContact()
-        {            
+        {
             Console.WriteLine("Enter your First Name");
             contact.FirstName = Console.ReadLine();
             Console.WriteLine("Enter your Last Name");
@@ -52,7 +54,7 @@ namespace AddressBookProgram
                 Console.WriteLine("Choose Field to edit");
                 Console.WriteLine("1 - First Name");
                 Console.WriteLine("2 - Last Name");
-                Console.WriteLine("3 - Address");               
+                Console.WriteLine("3 - Address");
                 Console.WriteLine("5 - State");
                 Console.WriteLine("4 - Zip");
                 Console.WriteLine("7 - E-mail");
@@ -68,7 +70,7 @@ namespace AddressBookProgram
                         break;
                     case 3:
                         contact.Address = Console.ReadLine();
-                        break;                   
+                        break;
                     case 4:
                         contact.State = Console.ReadLine();
                         break;
@@ -76,7 +78,7 @@ namespace AddressBookProgram
                         contact.ZipCode = Console.ReadLine();
                         break;
                     case 6:
-                        contact.PhoneNo =Console.ReadLine();
+                        contact.PhoneNo = Console.ReadLine();
                         break;
                     case 7:
                         contact.EmailId = Console.ReadLine();
@@ -111,6 +113,14 @@ namespace AddressBookProgram
                 AddContact();
                 Number--;
             }
+        }
+        public void MultipleAddressBook()
+        {
+            Console.WriteLine("Enter a name here");
+            string name = Console.ReadLine();
+            PersonDict.Add(name, person);
+            person = new List<Contact>();
+            Display();
         }
     }
 }
