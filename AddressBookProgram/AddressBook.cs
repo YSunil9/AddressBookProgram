@@ -25,6 +25,8 @@ namespace AddressBookProgram
             contact.Address = Console.ReadLine();
             Console.WriteLine("Enter your State");
             contact.State = Console.ReadLine();
+            Console.WriteLine("Enter your City");
+            contact.State = Console.ReadLine();
             Console.WriteLine("Enter your ZipCode");
             contact.ZipCode = Console.ReadLine();
             Console.WriteLine("Enter your Email_Id");
@@ -56,6 +58,7 @@ namespace AddressBookProgram
                 Console.WriteLine("Name of person : " + contact.FirstName + " " + contact.LastName);
                 Console.WriteLine("Address of person is : " + contact.Address);
                 Console.WriteLine("State :" + contact.State);
+                Console.WriteLine("City :" + contact.City);
                 Console.WriteLine("Zip :" + contact.ZipCode);
                 Console.WriteLine("Email of person : " + contact.EmailId);
                 Console.WriteLine("Phone Number of person : " + contact.PhoneNo);
@@ -91,12 +94,15 @@ namespace AddressBookProgram
                         contact.State = Console.ReadLine();
                         break;
                     case 5:
-                        contact.ZipCode = Console.ReadLine();
+                        contact.City = Console.ReadLine();
                         break;
                     case 6:
-                        contact.PhoneNo = Console.ReadLine();
+                        contact.ZipCode = Console.ReadLine();
                         break;
                     case 7:
+                        contact.PhoneNo = Console.ReadLine();
+                        break;
+                    case 8:
                         contact.EmailId = Console.ReadLine();
                         break;
                 }
@@ -138,7 +144,26 @@ namespace AddressBookProgram
             person = new List<Contact>();
             Display();
         }
-       
+        public void SearchByCityState()
+        {
+            Console.WriteLine("Please enter the name of City or State:");
+            string CheckCityOrState = Console.ReadLine();
+            foreach (var data in person)
+            {
+                string ActualCity = data.City;
+                string ActualState = data.State;
+                if (person.Exists(data => (ActualCity == CheckCityOrState) || (ActualState == CheckCityOrState)))
+                {
+                    Console.WriteLine("Name of person : " + data.FirstName + " " + data.LastName);
+                    Console.WriteLine("Address of person is : " + data.Address);
+                    Console.WriteLine("City : " + data.City);
+                    Console.WriteLine("State :" + data.State);
+                    Console.WriteLine("Zip :" + data.ZipCode);
+                    Console.WriteLine("Email of person : " + data.EmailId);
+                    Console.WriteLine("Phone Number of person : " + data.PhoneNo);
+                }
+            }
+        }
     }
 }
 
