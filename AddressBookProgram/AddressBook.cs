@@ -31,8 +31,24 @@ namespace AddressBookProgram
             contact.EmailId = Console.ReadLine();
             Console.WriteLine("Enter your Phone_Number");
             contact.PhoneNo = Console.ReadLine();
-            person.Add(contact);
-        }
+            //uc7
+            if (person.Count > 0)
+            {
+                foreach (var contact in person)
+                {
+                    if (contact.FirstName.Equals(contact.FirstName) && contact.LastName.Equals(contact.LastName))
+                    {
+                        Console.WriteLine("*************");
+                        Console.WriteLine(contact.FirstName + " is already Present in the AddressBook");
+                    }
+                    else
+                        person.Add(contact);
+                }
+            }
+            else
+                person.Add(contact);
+            Console.ReadLine();
+        }    
         public void Display()
         {
             foreach (Contact contact in person)
@@ -122,6 +138,7 @@ namespace AddressBookProgram
             person = new List<Contact>();
             Display();
         }
+       
     }
 }
 
