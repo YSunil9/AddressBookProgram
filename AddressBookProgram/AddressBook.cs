@@ -26,7 +26,7 @@ namespace AddressBookProgram
             Console.WriteLine("Enter your State");
             contact.State = Console.ReadLine();
             Console.WriteLine("Enter your City");
-            contact.State = Console.ReadLine();
+            contact.City = Console.ReadLine();
             Console.WriteLine("Enter your ZipCode");
             contact.ZipCode = Console.ReadLine();
             Console.WriteLine("Enter your Email_Id");
@@ -162,6 +162,31 @@ namespace AddressBookProgram
                     Console.WriteLine("Email of person : " + data.EmailId);
                     Console.WriteLine("Phone Number of person : " + data.PhoneNo);
                 }
+            }
+        }
+        public void ViewByCityState()
+        {
+            Console.WriteLine("Enter your Choice for Viewing a Person by:");
+            Console.WriteLine("1. City 2. State");
+            String choice = Console.ReadLine();
+            int choice1 = Convert.ToInt32(choice);
+            switch (choice1)
+            {
+                case 1:
+                    Console.WriteLine("Enter your City");
+                    String city = Console.ReadLine();
+                    foreach (Contact data in this.person.FindAll(data => data.City == city))
+                        Console.WriteLine("The person name is : " + data.FirstName + " " + data.LastName);
+                    break;
+                case 2:
+                    Console.WriteLine("Enter your State");
+                    String state = Console.ReadLine();
+                    foreach (Contact data in this.person.FindAll(data => data.State == state))
+                        Console.WriteLine("The person name is : " + data.FirstName + " " + data.LastName);
+                    break;
+                default:
+                    Console.WriteLine("Contact not found");
+                    break;
             }
         }
     }
