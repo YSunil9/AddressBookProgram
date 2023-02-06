@@ -49,7 +49,7 @@ namespace AddressBookProgram
             }
             else
                 person.Add(contact);
-            Console.ReadLine();
+                Console.ReadLine();
         }    
         public void Display()
         {
@@ -169,8 +169,8 @@ namespace AddressBookProgram
             Console.WriteLine("Enter your Choice for Viewing a Person by:");
             Console.WriteLine("1. City 2. State");
             String choice = Console.ReadLine();
-            int choice1 = Convert.ToInt32(choice);
-            switch (choice1)
+            int option = Convert.ToInt32(Console.ReadLine());
+            switch (option)
             {
                 case 1:
                     Console.WriteLine("Enter your City");
@@ -186,6 +186,35 @@ namespace AddressBookProgram
                     break;
                 default:
                     Console.WriteLine("Contact not found");
+                    break;
+            }
+        }
+        public void CountContacts()
+        {
+            int count = 0;
+            Console.WriteLine("Enter your Choice for Count Person by:");
+            Console.WriteLine("1. City 2. State");
+            String choice = Console.ReadLine();
+            int option = Convert.ToInt32(Console.ReadLine());
+            switch (option)
+            {
+                case 1:
+                    Console.WriteLine("Enter your City");
+                    String city = Console.ReadLine();
+                    foreach (Contact personal_Details in this.person.FindAll(data => data.City == city))
+                    {
+                        count = this.person.Count();
+                    }
+                    Console.WriteLine(count + " Contacts Availabel From This City");
+                    break;
+                case 2:
+                    Console.WriteLine("Enter your State");
+                    String state = Console.ReadLine();
+                    foreach (Contact personal_Details in this.person.FindAll(data => data.State == state))
+                    {
+                        count = this.person.Count();
+                    }
+                    Console.WriteLine(count + " Contacts Availabel From This State");
                     break;
             }
         }
