@@ -218,6 +218,25 @@ namespace AddressBookProgram
                     break;
             }
         }
+        // sorting the contacts list in alphabetical order of firstName
+        public void SortingList()
+        {
+            List<Contact> Sorted = new List<Contact>();
+            Sorted = person.OrderBy(s => s.FirstName).ToList();
+            foreach (var data in Sorted)
+            {
+                if (person.Contains(data))
+                {
+                    Console.WriteLine("Name of person : " + data.FirstName + " " + data.LastName);
+                    Console.WriteLine("Address of person is : " + data.Address);
+                    Console.WriteLine("City : " + data.City);
+                    Console.WriteLine("State :" + data.State);
+                    Console.WriteLine("Zip :" + data.ZipCode);
+                    Console.WriteLine("Email of person : " + data.EmailId);
+                    Console.WriteLine("Phone Number of person : " + data.PhoneNo);
+                }
+            }
+        }
     }
 }
 

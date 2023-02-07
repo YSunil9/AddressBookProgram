@@ -14,7 +14,8 @@ namespace AddressBookProgram
             while (true)
             {
                 Console.WriteLine("1.AddContact\n2.DisplayContact\n3.EditContact\n4.Delete" +
-                    "\n5.MultipleContact\n6.MultipleAddressBook\n7.SearchByCityState\n8.ViewByCityState\n9.CountContacts");
+                    "\n5.MultipleContact\n6.MultipleAddressBook\n7.SearchByCityState\n8.ViewByCityState" +
+                    "\n9.CountContacts\n10.SortingList");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -45,6 +46,10 @@ namespace AddressBookProgram
                     case 9:
                         obj.CountContacts();
                         break;
+                    case 10:
+                        obj.SortingList();
+                        break;
+
                 }
             }
         }
