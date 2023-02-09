@@ -256,6 +256,31 @@ namespace AddressBookProgram
                 }
             }
         }
+        //UC13
+        private string filePath = @"D:\Bridgelab\repos\AddressBookProgram\AddressBookProgram\Contact.txt";
+        public void WriteToFile()
+        {
+            using StreamWriter writer = new StreamWriter(filePath, true);
+            foreach (Contact item in person)
+            {
+                writer.WriteLine(item.FirstName);
+                writer.WriteLine(item.LastName);
+                writer.WriteLine(item.Address);
+                writer.WriteLine(item.City);
+                writer.WriteLine(item.State);
+                writer.WriteLine(item.ZipCode);
+                writer.WriteLine(item.EmailId);
+                writer.WriteLine(item.PhoneNo);
+            }
+            Console.WriteLine("\nSuccessfully added Text to The file.");
+            writer.Close();
+        }
+        public void ReadFromFile()
+        {
+            Console.WriteLine("Below are Contents of Text File");
+            string lines = File.ReadAllText(filePath);
+            Console.WriteLine(lines);
+        }
     }
 }
 

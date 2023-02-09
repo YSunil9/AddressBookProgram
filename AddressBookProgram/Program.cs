@@ -15,7 +15,7 @@ namespace AddressBookProgram
             {
                 Console.WriteLine("1.AddContact\n2.DisplayContact\n3.EditContact\n4.Delete" +
                     "\n5.MultipleContact\n6.MultipleAddressBook\n7.SearchByCityState\n8.ViewByCityState" +
-                    "\n9.CountContacts\n10.SortingList\n11.SortByZip");
+                    "\n9.CountContacts\n10.SortingList\n11.SortByZip\n12.WriteFile&ReadFile");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -51,6 +51,11 @@ namespace AddressBookProgram
                         break;
                     case 11:
                         obj.SortByZip();
+                        break;
+                    case 12:
+                        obj.AddContact();
+                        obj.WriteToFile();
+                        obj.ReadFromFile();
                         break;
 
                 }
