@@ -256,8 +256,7 @@ namespace AddressBookProgram
                 }
             }
         }
-     
-        private string filePath = @"D:\Bridgelab\repos\AddressBookProgram\AddressBookProgram\Addresses.csv";
+        private string filePath = @"D:\Bridgelab\repos\AddressBookProgram\AddressBookProgram\Contact.json";
         public void WriteToFile()
         {
             using StreamWriter writer = new StreamWriter(filePath, true);
